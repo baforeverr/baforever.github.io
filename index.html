@@ -1,0 +1,550 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Wedding Invitation - Ayush & Bhawna</title>
+    <style>
+        /* CSS Reset */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        /* Body and Fonts */
+        body {
+            font-family: 'Poppins', sans-serif;
+            background-color: #FFF8E1; /* Light golden background */
+            overflow-x: hidden;
+            scroll-behavior: smooth;
+        }
+        h1, h2, h3, h4 {
+            font-family: 'Great Vibes', cursive;
+            color: #D81B60; /* Vibrant magenta */
+        }
+        p {
+            font-size: 18px;
+            color: #303F9F; /* Royal blue */
+            line-height: 1.6;
+        }
+        /* Navigation Styles */
+        nav {
+            position: fixed;
+            width: 100%;
+            background-color: rgba(255, 248, 225, 0.95); /* Light golden with transparency */
+            padding: 15px 0;
+            z-index: 1000;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+        }
+        nav ul {
+            list-style: none;
+            text-align: center;
+        }
+        nav ul li {
+            display: inline-block;
+            margin: 0 15px;
+        }
+        nav ul li a {
+            text-decoration: none;
+            color: #D81B60; /* Vibrant magenta */
+            font-size: 18px;
+            font-weight: bold;
+            transition: color 0.3s;
+        }
+        nav ul li a:hover {
+            color: #F57C00; /* Vibrant orange */
+        }
+        /* Header Styles */
+        header {
+            position: relative;
+            height: 100vh;
+            background-image: url('header-background.jpg'); /* Replace with your image */
+            background-size: cover;
+            background-position: center;
+            color: #fff;
+            padding-top: 80px; /* Added padding to account for the navigation bar */
+        }
+        .header-content {
+            position: absolute;
+            top: 55%; /* Moved down from 50% */
+            left: 50%;
+            transform: translate(-50%, -55%); /* Adjusted to match top */
+            text-align: center;
+            color: #fff;
+            padding: 20px;
+            border-radius: 10px;
+        }
+        .header-content h1 {
+            font-size: 50px;
+            margin-bottom: 20px;
+            animation: fadeInDown 2s;
+        }
+        .header-content p {
+            font-size: 24px;
+            margin-bottom: 10px;
+            animation: fadeInUp 2s;
+        }
+        .header-content .btn {
+            background-color: #D81B60; /* Vibrant magenta */
+            color: #fff;
+            padding: 15px 30px;
+            text-decoration: none;
+            font-size: 20px;
+            border-radius: 30px;
+            transition: background-color 0.3s;
+            animation: fadeInUp 2s;
+            margin-top: 20px;
+            display: inline-block;
+        }
+        .header-content .btn:hover {
+            background-color: #C2185B; /* Slightly darker magenta */
+        }
+        /* Ganesha Icon */
+        .ganesha-icon {
+            height: 120px; /* Adjusted size */
+            margin-bottom: 20px;
+        }
+        /* Falling Petals Styles */
+        .flower-petals {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            pointer-events: none;
+            overflow: hidden;
+            z-index: 9999;
+        }
+
+        .petal {
+            position: absolute;
+            width: 30px;
+            height: 30px;
+            background-image: url('petal.png'); /* Replace with your petal image */
+            background-size: contain;
+            background-repeat: no-repeat;
+            opacity: 0.8;
+            animation: fall linear infinite;
+        }
+
+        @keyframes fall {
+            0% {
+                transform: translateY(-100px) rotate(0deg);
+                opacity: 1;
+            }
+            100% {
+                transform: translateY(110vh) rotate(360deg);
+                opacity: 0;
+            }
+        }
+        /* Section Styles */
+        section {
+            padding: 80px 0;
+            position: relative;
+            overflow: hidden;
+            background-color: inherit; /* Ensure sections inherit the body background */
+        }
+        .container {
+            width: 85%;
+            margin: auto;
+            overflow: hidden;
+        }
+        h2.section-title {
+            font-family: 'Great Vibes', cursive;
+            font-size: 48px;
+            color: #D81B60; /* Vibrant magenta */
+            text-align: center;
+            margin-bottom: 50px;
+            position: relative;
+        }
+        h2.section-title::after {
+            content: '';
+            width: 100px;
+            height: 4px;
+            background-color: #FBC02D; /* Golden yellow */
+            position: absolute;
+            left: 50%;
+            bottom: -15px;
+            transform: translateX(-50%);
+            border-radius: 2px;
+        }
+        .event {
+            margin-bottom: 50px;
+            animation: fadeIn 2s;
+        }
+        .event h3 {
+            font-size: 32px;
+            color: #F57C00; /* Vibrant orange */
+            margin-bottom: 15px;
+            font-family: 'Poppins', sans-serif;
+        }
+        .event p {
+            font-size: 20px;
+            margin-bottom: 20px;
+            color: #303F9F; /* Royal blue */
+        }
+        .theme {
+            color: #388E3C; /* Emerald green */
+            font-weight: bold;
+            font-size: 22px;
+            margin-bottom: 20px;
+        }
+
+        /* Countdown Timer Styles */
+        #countdown h2 {
+            text-align: center;
+            font-size: 48px;
+            color: #D81B60;
+            margin-bottom: 40px;
+        }
+        /* Center the countdown timer */
+        #timer {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            flex-wrap: wrap; /* Allows items to wrap on smaller screens */
+        }
+        #timer div {
+            margin: 10px 20px;
+            text-align: center;
+        }
+        #timer span {
+            display: block;
+            font-size: 60px;
+            color: #D81B60; /* Vibrant magenta */
+        }
+        #timer p {
+            font-size: 20px;
+            margin-top: 5px;
+            color: #303F9F; /* Royal blue */
+        }
+
+        /* RSVP Section */
+        .rsvp-section {
+            background-color: #FCE4EC; /* Light pink */
+            padding: 80px 20px;
+            text-align: center;
+            background-size: cover;
+            background-attachment: fixed;
+            position: relative;
+            overflow: hidden;
+        }
+        .rsvp-btn {
+            background-color: #F57C00; /* Vibrant orange */
+            color: #fff;
+            padding: 10px 30px;
+            top: 30px;
+            position: relative;
+            font-size: 20px;
+            border-radius: 30px;
+            text-decoration: none;
+            transition: background-color 0.3s;
+            margin-top: 20px; /* Added margin-top to push the button down */
+        }
+        .rsvp-btn:hover {
+            background-color: #E64A19; /* Darker orange */
+        }
+        /* Footer Styles */
+        footer {
+            background-color: #D81B60; /* Vibrant magenta */
+            text-align: center;
+            padding: 20px 0;
+            font-size: 18px;
+            color: #fff;
+        }
+        /* Contact Us Section */
+        .contact-section {
+            background-color: #FFF8E1; /* Light golden background */
+            padding: 80px 20px;
+            text-align: center;
+        }
+        .contact-section h2 {
+            margin-bottom: 40px;
+        }
+        .contact-details {
+            font-size: 20px;
+            color: #303F9F; /* Royal blue */
+            margin-bottom: 10px;
+        }
+        /* Animations */
+        @keyframes fadeInDown {
+            from { opacity: 0; transform: translateY(-50px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+        @keyframes fadeInUp {
+            from { opacity: 0; transform: translateY(50px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+        @keyframes fadeIn {
+            from { opacity: 0; }
+            to { opacity: 1; }
+        }
+        /* Responsive Styles */
+        @media (max-width: 768px) {
+            nav ul li {
+                display: block;
+                margin: 10px 0;
+            }
+            .header-content h1 {
+                font-size: 40px;
+            }
+            .header-content p {
+                font-size: 20px;
+            }
+            .event h3 {
+                font-size: 26px;
+            }
+            .event p {
+                font-size: 18px;
+            }
+            .rsvp-btn {
+                font-size: 18px;
+                padding: 8px 20px;
+                margin-top: 15px; /* Adjusted for smaller screens */
+            }
+            #timer {
+                flex-direction: column;
+            }
+            #timer div {
+                margin: 10px 0;
+            }
+            #timer span {
+                font-size: 48px;
+            }
+            .ganesha-icon {
+                height: 80px; /* Adjusted for smaller screens */
+            }
+        }
+    </style>
+    <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Great+Vibes&family=Poppins:wght@400;600&display=swap" rel="stylesheet">
+</head>
+<body>
+
+
+    <!-- Falling Petals Effect -->
+    <div class="flower-petals"></div>
+
+    <!-- Navigation Menu -->
+    <nav>
+        <ul>
+            <li><a href="#invitation">Invitation</a></li>
+            <li><a href="#countdown">Countdown</a></li>
+            <li><a href="#lagan">Lagan Patrika</a></li>
+            <li><a href="#pre-wedding-dinner">Pre-Wedding Dinner</a></li>
+            <li><a href="#sagan-sangeet">Sagan & Sangeet</a></li>
+            <li><a href="#haldi-wedding">Haldi & Wedding</a></li>
+            <li><a href="#venue">Venue</a></li>
+            <li><a href="#contact-us">Contact Us</a></li>
+            <li><a href="#rsvp">RSVP</a></li>
+        </ul>
+    </nav>
+
+    <!-- Header Section -->
+    <header id="invitation">
+        <div class="header-content">
+            <img src="ganesha-icon.png" alt="Ganesha Icon" class="ganesha-icon">
+            <h1>॥ ॐ श्री गणेशाय नमः ॥</h1>
+            <p>With the blessings of Shri Krishna</p>
+            <p>Smt. Prabha Devi and Shree Netram Singh</p>
+            <p>request the honour of your gracious presence at the</p>
+            <h3>Wedding Ceremony of their beloved grand daughter</h3>
+            <h1>Bhawna Singh</h1>
+            <h3>With</h3>
+            <h1>Ayush Ghai</h1>
+            <p>Son of Dr. Reena Ghai & Prof. (Dr.) Ashwani Kumar Ghai</p>
+            <a href="#rsvp" class="btn">RSVP Now</a>
+        </div>
+    </header>
+
+    <!-- Countdown Timer Section -->
+    <section id="countdown">
+        <h2>Countdown to Our Big Day</h2>
+        <div id="timer">
+            <div><span id="days">0</span><p>Days</p></div>
+            <div><span id="hours">0</span><p>Hours</p></div>
+            <div><span id="minutes">0</span><p>Minutes</p></div>
+            <div><span id="seconds">0</span><p>Seconds</p></div>
+        </div>
+    </section>
+
+    <!-- Lagan Section -->
+    <section id="lagan">
+        <div class="container">
+            <h2 class="section-title">Lagan Patrika</h2>
+            <div class="event">
+                <p><strong>Date:</strong> 3rd December 2024</p>
+                <h3>Lagan Patrika</h3>
+                <p>A Lagan Patrika is a traditional Hindu document or invitation letter used to formally announce and invite guests to a wedding. It typically contains details about the marriage ceremony, including the date, time, and venue, along with the names of the bride, groom, and their families. </p>
+                <p class="venue"><strong>Home</strong><br>S-14-15, Barkat Nagar<br> Tonk Phatak, Jaipur, 302015</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Pre-Wedding Section -->
+    <section id="Dinner">
+        <div class="container">
+            <h2 class="section-title">Pre-Wedding Dinner</h2>
+            <div class="event">
+                <p><strong>Date:</strong> 6th December 2024</p>
+                <h3>Pre-Wedding Dinner</h3>
+                <p>To kickstart the wedding of Bhawna and Ayush, we are hosting a pre-wedding dinner. Join us for an evening of joy, laughter, and celebration as the couple begin their new journey.</p>
+                <p>Time: 7 PM onwards</p>
+                <p class="venue"><strong>Hotel Mystic Falls</strong><br>4, Gopalpura Bypass Rd, opp. pillar no.32 <br> Shiv Shakti Nagar, Ranisati Nagar, Jaipur, Rajasthan 302018</p>
+            </div>
+        </div>
+    </section>
+    
+
+    <!-- Sagan & Sangeet Section -->
+    <section id="sagan-sangeet">
+        <div class="container">
+            <h2 class="section-title">Sagan Ceremony & Sangeet</h2>
+            <div class="event">
+                <p><strong>Date:</strong> 9th December 2024</p>
+                <h3>Sagan Ceremony</h3>
+                <p>A pre-wedding ritual where the bride and the groom are blessed by both the families, as they receive gifts and sweets symbolizing good luck. Join us for this auspicious ceremony as we shower blessings upon the lovely couple.</p>
+            </div>
+            <div class="event">
+                <h3>Sangeet Ceremony</h3>
+                <p>A musical celebration before the wedding where both families sing, dance, and enjoy performances to celebrate the upcoming marriage.</p>
+                <p>Let the night sparkle with joy as we dance to the tunes of love and laughter.</p>
+                <p class="theme">Dress Code: Dazzling Attire (Bling and Glitter)</p>
+            </div>
+        </div>
+    </section>
+
+
+    <!-- Haldi & Wedding Section -->
+    <section id="haldi-wedding">
+        <div class="container">
+            <h2 class="section-title">Haldi Ceremony & Wedding Rituals</h2>
+            <div class="event">
+                <p><strong>Date:</strong> 10th December 2024</p>
+                <h3>Haldi Ceremony</h3>
+                <p>Turmeric paste is applied to the bride and groom by family members to bring good luck, purify, and prepare them for the wedding.</p>
+                <p>Embrace the hues of happiness as we apply the sacred turmeric paste to bless the couple.</p>
+                <p class="theme">Dress Code: Shades of yellow</p>
+            </div>
+            <div class="event">
+                <h3>Wedding Ceremony</h3>
+                <p>The main event where the bride and groom exchange vows and are married through sacred rituals by taking seven rounds around the holy fire.</p>
+                <p>Witness the sacred vows and timeless traditions as Ayush and Bhawna unite in matrimony.</p>
+                <p class="theme">Dress Code: Traditional</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Venue Section -->
+    <section id="venue">
+        <div class="container">
+            <h2 class="section-title">Venue & Details</h2>
+            <p class="venue"><strong>Neemrana Fort Palace</strong><br>15th Century, Delhi-Jaipur Highway 122nd Milestone, Delhi - Jaipur Expy,<br> Neemrana, Rajasthan 301705, India</p>
+            <p>Experience the royal grandeur as we celebrate amidst the historic beauty of Neemrana Fort.</p>
+            <p class="italic">All ceremonies on 9th and 10th December will take place at this venue</p>
+            <h3>Additional Information:</h3>
+            <ul>
+                <li>Accommodation has been arranged at the venue for all guests.</li>
+                <li>Please inform us of any dietary requirements or special assistance needed.</li>
+            </ul>
+            <!-- Google Maps Embed -->
+            <iframe
+                src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3559.225337122645!2d76.3840408144075!3d27.989017782691835!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3911c5479c6d4d51%3A0x5b46a24ecdd4e7b5!2sNeemrana%20Fort-Palace!5e0!3m2!1sen!2sin!4v1600000000000!5m2!1sen!2sin"
+                width="100%"
+                height="450"
+                frameborder="0"
+                style="border:0;"
+                allowfullscreen=""
+                aria-hidden="false"
+                tabindex="0">
+            </iframe>
+        </div>
+    </section>
+
+    <!-- Contact Us Section -->
+    <section id="contact-us">
+        <div class="container">
+            <h2 class="section-title">Contact Us</h2>
+            <p class="contact-details"style = text-align:center;>For any queries or assistance, please contact:</p>
+            <p class="contact-details" style = text-align:center;> <strong>Deepak Singh</strong><br><a href="tel:+91-8107378938">+91-8107378938</a></p>
+            <p class="contact-details" style = text-align:center;><strong>Binayak Singh</strong><br><a href="tel:+91-9602557200">+91-9602557200</a></p>
+
+        </div>          
+    </section>
+
+
+    <!-- RSVP Section -->
+    <section id="rsvp" class="rsvp-section">
+        <h2>Kindly Respond</h2>
+        <p>We would be delighted to have your presence. Please let us know if you will be able to join us in our celebrations.</p>
+        <!-- Added margin-top to push the button down -->
+        <a href="https://forms.gle/ZCtiLAM7QLUqC3ST8" target="_blank" class="rsvp-btn">RSVP via Google Form</a>
+        <!-- Replace the href value with your actual Google Form link -->
+    </section>
+
+    <!-- Footer -->
+    <footer>
+        &copy; 2024 Ayush & Bhawna's Wedding | Designed with ❤️
+    </footer>
+
+    <!-- JavaScript for Countdown Timer -->
+    <script>
+        // Set the date we're counting down to
+        var countDownDate = new Date("Dec 10, 2024 00:00:00").getTime();
+
+        // Update the count down every 1 second
+        var countdownfunction = setInterval(function() {
+
+            // Get today's date and time
+            var now = new Date().getTime();
+            
+            // Find the distance between now and the count down date
+            var distance = countDownDate - now;
+            
+            // Time calculations for days, hours, minutes and seconds
+            var days = Math.floor(distance / (1000 * 60 * 60 * 24));
+            var hours = Math.floor((distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+            var minutes = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
+            var seconds = Math.floor((distance % (1000 * 60)) / 1000);
+            
+            // Display the result in the elements with id
+            document.getElementById("days").innerHTML = days;
+            document.getElementById("hours").innerHTML = ("0" + hours).slice(-2);
+            document.getElementById("minutes").innerHTML = ("0" + minutes).slice(-2);
+            document.getElementById("seconds").innerHTML = ("0" + seconds).slice(-2);
+            
+            // If the count down is finished, write some text
+            if (distance < 0) {
+                clearInterval(countdownfunction);
+                document.getElementById("timer").innerHTML = "Today is the Big Day!";
+            }
+        }, 1000);
+    </script>
+
+    <!-- JavaScript for Falling Petals Animation -->
+    <script>
+        // Falling Petals Animation
+        const petalsContainer = document.querySelector('.flower-petals');
+        const numPetals = 60; // Number of petals
+
+        for (let i = 0; i < numPetals; i++) {
+            const petal = document.createElement('div');
+            petal.classList.add('petal');
+
+            // Randomize initial position
+            petal.style.left = Math.random() * 100 + 'vw';
+            petal.style.top = Math.random() * -100 + 'px';
+
+            // Randomize animation delay and duration
+            const delay = Math.random() * 10;
+            const duration = 10 + Math.random() * 20;
+
+            petal.style.animationDelay = delay + 's';
+            petal.style.animationDuration = duration + 's';
+            petal.style.opacity = Math.random();
+
+            petalsContainer.appendChild(petal);
+        }
+    </script>
+
+</body>
+</html>
